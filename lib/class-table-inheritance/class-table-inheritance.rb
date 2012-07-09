@@ -30,6 +30,18 @@ class ActiveRecord::Base
           super_classes
         end
       end
+
+      def self.first(*args)
+        self.find(:first, *args)
+      end
+
+      def self.last(*args)
+        self.find(:last, *args)
+      end
+
+      def self.all(*args)
+        self.find(:all, *args)
+      end
     end  
   end
 
