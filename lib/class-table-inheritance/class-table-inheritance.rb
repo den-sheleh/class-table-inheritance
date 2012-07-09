@@ -12,10 +12,10 @@ class ActiveRecord::Base
           if super_classes.kind_of? Array
             super_classes.map do |item|
               if !item.subtype.nil? && !item.subtype.blank?
-                inherits_type = super_classes.subtype.to_s.classify.constantize
+                inherits_type = item.subtype.to_s.classify.constantize
                 inherits_type.send(:find, item.id)
               else
-                super_classes
+                item
               end
             end
           else
